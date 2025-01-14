@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>ENSSAT Meteo</title>
+    <link rel="icon" href="public/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="flex" style="font-family: 'Roboto', sans-serif;">
+        <div class="flex flex-col bg-[#1B202E] w-[15vw] min-h-screen text-white">
+            <div class="flex items-center w-full h-[80px]">
+                <img src="public/logo.png" alt="ENSSAT Logo" class="w-[50px] h-[50px] ml-[15px]">
+                <div class="font-bold text-[26px] pl-[15px]">
+                    ENSSAT Meteo
+                </div>
+            </div>
+            <div class="flex items-center w-full h-[80px] hover:bg-[#2C3345] cursor-pointer" onclick="window.location.href='index.html'">
+                <img src="public/house.svg" alt="Dashboard" class="w-[20px] h-[20px] ml-[30px]">
+                <div class="text-[20px] pl-[15px]">
+                    Dashboard
+                </div>
+            </div>
+            <div class="flex items-center w-full h-[80px] hover:bg-[#2C3345] cursor-pointer" onclick="window.location.href='map.html'">
+                <img src="public/map.svg" alt="Map" class="w-[20px] h-[20px] ml-[30px]">
+                <div class="text-[20px] pl-[15px]">
+                    Map
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col bg-[#2C3345] w-[55vw] min-h-screen text-white">
+            <div class="flex items-center justify-between w-full p-[25px]">
+                <div class="flex flex-col">
+                    <div class="text-[25px] font-bold">
+                        Janvier 2025
+                    </div>
+                    <div>
+                        Mardi 14 Janvier 2025
+                    </div>
+                </div>
+                <div class="flex items-center rounded-[10px] bg-[#1B202E] w-[700px] h-[50px]">
+                    <img src="public/search.svg" alt="Search" class="w-[20px] h-[20px] mx-[15px]">
+                    <input type="text" class="bg-[#1B202E] text-white w-[600px] h-[50px] outline-none" placeholder="Rechercher une ville">
+                </div>
+            </div>
+            <div class="flex items-center justify-between w-full p-[25px] pt-[50px]">
+                <div class="text-[20px] font-bold">
+                    Météo du jour
+                </div>
+            </div>
+            <div class="flex w-full">
+                <div class="flex items-center rounded-[10px] w-[calc(50%)] h-[125px] m-[25px] mr-[0px]" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);">
+                    <img src="public/wind.svg" alt="Wind" class="w-[60px] h-[60px] mx-[25px]">
+                    <div class="flex flex-col">
+                        <div class="text-[20px] text-gray-400">
+                            Vitesses du vent
+                        </div>
+                        <div class="text-[35px] font-bold">
+                            15 km/h
+                        </div>
+                    </div>
+                    <div class="flex items-center ml-auto">
+                        <img src="public/up.svg" alt="Up" class="w-[15px] h-[15px] mr-[10px]">
+                        <div class="text-[20px] text-gray-400 mr-[25px]">
+                            2 km/h
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center rounded-[10px] w-[calc(50%)] h-[125px] m-[25px]" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);">
+                    <img src="public/rain.svg" alt="Rain" class="w-[60px] h-[60px] mx-[25px]">
+                    <div class="flex flex-col">
+                        <div class="text-[20px] text-gray-400">
+                            Probabilité de pluie
+                        </div>
+                        <div class="text-[35px] font-bold">
+                            30%	
+                        </div>
+                    </div>
+                    <div class="flex items-center ml-auto">
+                        <img src="public/down.svg" alt="Down" class="w-[15px] h-[15px] mr-[10px]">
+                        <div class="text-[20px] text-gray-400 mr-[25px]">
+                            5%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex w-full">
+                <div class="flex items-center rounded-[10px] w-[calc(50%)] h-[125px] m-[25px] mr-[0px] mt-[0px]" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);">
+                    <img src="public/rain.svg" alt="Rain" class="w-[60px] h-[60px] mx-[25px]">
+                    <div class="flex flex-col">
+                        <div class="text-[20px] text-gray-400">
+                            Pression
+                        </div>
+                        <div class="text-[35px] font-bold">
+                            1013 hPa
+                        </div>
+                    </div>
+                    <div class="flex items-center ml-auto">
+                        <img src="public/down.svg" alt="Down" class="w-[15px] h-[15px] mr-[10px]">
+                        <div class="text-[20px] text-gray-400 mr-[25px]">
+                            5 hPa
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center rounded-[10px] w-[calc(50%)] h-[125px] m-[25px] mt-[0px]" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);">
+                    <img src="public/UV.svg" alt="UV" class="w-[60px] h-[60px] mx-[25px]">
+                    <div class="flex flex-col">
+                        <div class="text-[20px] text-gray-400">
+                            UV Index
+                        </div>
+                        <div class="text-[35px] font-bold">
+                            3
+                        </div>
+                    </div>
+                    <div class="flex items-center ml-auto">
+                        <img src="public/up.svg" alt="Up" class="w-[15px] h-[15px] mr-[10px]">
+                        <div class="text-[20px] text-gray-400 mr-[25px]">
+                            1
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col bg-[#1B202E] w-[30vw] min-h-screen text-white">
+        </div>
+    </div>
+</body>
+</html>
