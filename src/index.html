@@ -9,26 +9,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>ENSSAT Meteo</title>
     <link rel="icon" href="public/favicon.ico" type="image/x-icon">
+    <script src="index.js"></script>
 </head>
 <body>
     <div class="flex" style="font-family: 'Roboto', sans-serif;">
         <div class="flex flex-col bg-[#1B202E] w-[15vw] min-h-screen text-white">
             <div class="flex items-center w-full h-[80px]">
-                <img src="public/logo.png" alt="ENSSAT Logo" class="w-[50px] h-[50px] ml-[15px]">
-                <div class="font-bold text-[26px] pl-[15px]">
-                    ENSSAT Meteo
+                <img src="public/logo.png" alt="ENSSAT Logo" class="w-[50px] h-[40px] ml-[15px]">
+                <div class="font-bold text-[20px] pl-[15px]">
+                    La Météo de Julo 3
                 </div>
             </div>
             <div class="flex items-center w-full h-[80px] hover:bg-[#2C3345] cursor-pointer" onclick="window.location.href='index.html'">
                 <img src="public/house.svg" alt="Dashboard" class="w-[20px] h-[20px] ml-[30px]">
                 <div class="text-[20px] pl-[15px]">
-                    Dashboard
+                    Tableau de bord
                 </div>
             </div>
             <div class="flex items-center w-full h-[80px] hover:bg-[#2C3345] cursor-pointer" onclick="window.location.href='map.html'">
                 <img src="public/map.svg" alt="Map" class="w-[20px] h-[20px] ml-[30px]">
                 <div class="text-[20px] pl-[15px]">
-                    Map
+                    Carte
                 </div>
             </div>
         </div>
@@ -36,15 +37,27 @@
             <div class="flex items-center justify-between w-full p-[25px]">
                 <div class="flex flex-col">
                     <div class="text-[25px] font-bold">
-                        Janvier 2025
+                        <script>
+                            var date = new Date();
+                            var month = date.toLocaleString('default', { month: 'long' }).charAt(0).toUpperCase() + date.toLocaleString('default', { month: 'long' }).slice(1);
+                            var year = date.getFullYear();
+                            document.write(month + " " + year);
+                        </script>
                     </div>
-                    <div>
-                        Mardi 14 Janvier 2025
+                    <div class="text-gray-400">
+                        <script>
+                            var date = new Date();
+                            var day = date.toLocaleString('default', { weekday: 'long' }).charAt(0).toUpperCase() + date.toLocaleString('default', { weekday: 'long' }).slice(1);
+                            var dayNumber = date.getDate();
+                            var month = date.toLocaleString('default', { month: 'long' }).charAt(0).toUpperCase() + date.toLocaleString('default', { month: 'long' }).slice(1);
+                            var year = date.getFullYear();
+                            document.write(day + " " + dayNumber + " " + month + " " + year);
+                        </script>
                     </div>
                 </div>
-                <div class="flex items-center rounded-[10px] bg-[#1B202E] w-[700px] h-[50px]">
+                <div class="flex items-center rounded-[10px] bg-[#1B202E] w-[700px] h-[40px]">
                     <img src="public/search.svg" alt="Search" class="w-[20px] h-[20px] mx-[15px]">
-                    <input type="text" class="bg-[#1B202E] text-white w-[600px] h-[50px] outline-none" placeholder="Rechercher une ville">
+                    <input type="text" class="bg-[#1B202E] text-white w-[600px] h-[40px] outline-none" placeholder="Rechercher une ville">
                 </div>
             </div>
             <div class="flex items-center justify-between w-full p-[25px] pt-[50px]">
@@ -59,14 +72,14 @@
                         <div class="text-[20px] text-gray-400">
                             Vitesses du vent
                         </div>
-                        <div class="text-[35px] font-bold">
-                            15 km/h
+                        <div id="wind_speed" class="text-[30px] font-bold">
+                            0 km/h
                         </div>
                     </div>
                     <div class="flex items-center ml-auto">
-                        <img src="public/up.svg" alt="Up" class="w-[15px] h-[15px] mr-[10px]">
-                        <div class="text-[20px] text-gray-400 mr-[25px]">
-                            2 km/h
+                        <img id="wind_speed_change_img" src="public/up.svg" alt="Change" class="w-[15px] h-[15px] mr-[10px]">
+                        <div id="wind_speed_change" class="text-[20px] text-gray-400 mr-[25px]">
+                            0 km/h
                         </div>
                     </div>
                 </div>
@@ -76,33 +89,33 @@
                         <div class="text-[20px] text-gray-400">
                             Probabilité de pluie
                         </div>
-                        <div class="text-[35px] font-bold">
-                            30%	
+                        <div id="rain_probability" class="text-[30px] font-bold">
+                            0%	
                         </div>
                     </div>
                     <div class="flex items-center ml-auto">
-                        <img src="public/down.svg" alt="Down" class="w-[15px] h-[15px] mr-[10px]">
-                        <div class="text-[20px] text-gray-400 mr-[25px]">
-                            5%
+                        <img id="rain_probability_change_img" src="public/up.svg" alt="Change" class="w-[15px] h-[15px] mr-[10px]">
+                        <div id="rain_probability_change" class="text-[20px] text-gray-400 mr-[25px]">
+                            0%
                         </div>
                     </div>
                 </div>
             </div>
             <div class="flex w-full">
                 <div class="flex items-center rounded-[10px] w-[calc(50%)] h-[125px] m-[25px] mr-[0px] mt-[0px]" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);">
-                    <img src="public/rain.svg" alt="Rain" class="w-[60px] h-[60px] mx-[25px]">
+                    <img src="public/rain.svg" alt="Pressure" class="w-[60px] h-[60px] mx-[25px]">
                     <div class="flex flex-col">
                         <div class="text-[20px] text-gray-400">
                             Pression
                         </div>
-                        <div class="text-[35px] font-bold">
-                            1013 hPa
+                        <div id="pressure" class="text-[30px] font-bold">
+                            0 hPa
                         </div>
                     </div>
                     <div class="flex items-center ml-auto">
-                        <img src="public/down.svg" alt="Down" class="w-[15px] h-[15px] mr-[10px]">
-                        <div class="text-[20px] text-gray-400 mr-[25px]">
-                            5 hPa
+                        <img id="pressure_change_img" src="public/up.svg" alt="Change" class="w-[15px] h-[15px] mr-[10px]">
+                        <div id="pressure_change" class="text-[20px] text-gray-400 mr-[25px]">
+                            0 hPa
                         </div>
                     </div>
                 </div>
@@ -110,22 +123,151 @@
                     <img src="public/UV.svg" alt="UV" class="w-[60px] h-[60px] mx-[25px]">
                     <div class="flex flex-col">
                         <div class="text-[20px] text-gray-400">
-                            UV Index
+                            Indice UV
                         </div>
-                        <div class="text-[35px] font-bold">
-                            3
+                        <div id="uv_index" class="text-[30px] font-bold">
+                            0
                         </div>
                     </div>
                     <div class="flex items-center ml-auto">
-                        <img src="public/up.svg" alt="Up" class="w-[15px] h-[15px] mr-[10px]">
-                        <div class="text-[20px] text-gray-400 mr-[25px]">
-                            1
+                        <img id="uv_index_change_img" src="public/up.svg" alt="Change" class="w-[15px] h-[15px] mr-[10px]">
+                        <div id="uv_index_change" class="text-[20px] text-gray-400 mr-[25px]">
+                            0
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="flex items-center justify-between w-full p-[25px] pt-[50px]">
+                <div class="text-[20px] font-bold">
+                    Température moyenne sur la semaine
+                </div>
+            </div>
+            <div class="flex w-full h-full bg-[#3c428d]">
+                
+            </div>
         </div>
-        <div class="flex flex-col bg-[#1B202E] w-[30vw] min-h-screen text-white">
+        <div class="flex flex-col w-[30vw] min-h-screen text-white" style="background: linear-gradient(170.59deg, #43556F 0%, #152F51 49%, #173A7E 100%);">
+            <div class="flex flex-col w-full h-full p-[30px]">
+                <div class="flex items-center justify-between w-full mb-[30px]">
+                    <div class="flex flex-col">
+                        <div class="text-[30px] font-bold">
+                            Lannion
+                        </div>
+                        <div class="text-gray-300">
+                            Côtes-d'Armor, Bretagne
+                        </div>
+                    </div>
+                    <div class="text-[25px] font-bold">
+                        <script>
+                            var date = new Date();
+                            var hours = date.getHours();
+                            var minutes = date.getMinutes();
+                            if (hours < 10) {
+                                hours = "0" + hours;
+                            }
+                            if (minutes < 10) {
+                                minutes = "0" + minutes;
+                            }
+                            document.write(hours + ":" + minutes);
+                        </script>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between w-full -mb-[10px]">
+                    <img src="public/sunny.svg" alt="Sun" class="w-[80px] h-[80px]">
+                </div>
+                <div class="flex justify-between w-full pb-[10px] border-b border-gray-300 border-opacity-40">
+                    <div id="temperature" class="text-[100px]">
+                        15°C
+                    </div>
+                    <div class="text-[25px] text-gray-300 mt-[27px]">
+                        Ensoleillé
+                    </div>
+                </div>
+                <div class="flex pt-[37px] pb-[15px]">
+                    <div class="text-[25px]">
+                        Probabilité de pluie
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-center w-full pb-[20px]">
+                        <div id="hour-1" class="pr-[20px] font-bold">
+                            00:00
+                        </div>
+                        <div class="w-full bg-[#1B202E] h-[40px] rounded-[10px]">
+                            <div id="bar-1" class="bg-[#2c6fbb] h-[40px] rounded-[10px]" style="width: 50%;"></div>
+                        </div>
+                        <div id="proba-1" class="pl-[20px] font-bold">
+                            50%
+                        </div>
+                    </div>
+                    <div class="flex items-center w-full pb-[20px]">
+                        <div id="hour-2" class="pr-[20px] font-bold">
+                            00:00
+                        </div>
+                        <div class="w-full bg-[#1B202E] h-[40px] rounded-[10px]">
+                            <div id="bar-2" class="bg-[#2c6fbb] h-[40px] rounded-[10px]" style="width: 50%;"></div>
+                        </div>
+                        <div id="proba-2" class="pl-[20px] font-bold">
+                            50%
+                        </div>
+                    </div>
+                    <div class="flex items-center w-full pb-[20px]">
+                        <div id="hour-3" class="pr-[20px] font-bold">
+                            00:00
+                        </div>
+                        <div class="w-full bg-[#1B202E] h-[40px] rounded-[10px]">
+                            <div id="bar-3" class="bg-[#2c6fbb] h-[40px] rounded-[10px]" style="width: 50%;"></div>
+                        </div>
+                        <div id="proba-3" class="pl-[20px] font-bold">
+                            50%
+                        </div>
+                    </div>
+                    <div class="flex items-center w-full">
+                        <div id="hour-4" class="pr-[20px] font-bold">
+                            00:00
+                        </div>
+                        <div class="w-full bg-[#1B202E] h-[40px] rounded-[10px]">
+                            <div id="bar-4" class="bg-[#2c6fbb] h-[40px] rounded-[10px]" style="width: 50%;"></div>
+                        </div>
+                        <div id="proba-4" class="pl-[20px] font-bold">
+                            50%
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col w-full h-full">
+                    <div class="flex pt-[25px] pb-[15px]">
+                        <div class="text-[25px]">
+                            Lever et coucher du soleil
+                        </div>
+                    </div>
+                    <div class="flex flex-col w-full h-full">
+                        <div class="flex items-center justify-between w-full h-[calc(50%-10px)] mb-[20px]" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);">
+                            <div class="flex items-center">
+                                <img src="public/sunset.svg" alt="Sunrise" class="w-[50px] h-[50px] ml-[20px]">
+                                <div class="flex flex-col pl-[20px]">
+                                    <div class="text-gray-300">Lever du soleil</div>
+                                    <div id="sunrise" class="font-bold text-[25px]">00:00</div>
+                                </div>
+                            </div>
+                            <div id="sunrise_in" class="flex items-center text-gray-300 pr-[20px]">
+                                
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between w-full h-[calc(50%-10px)]" style="box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);">
+                            <div class="flex items-center">
+                                <img src="public/sunrise.svg" alt="Sunrise" class="w-[50px] h-[50px] ml-[20px]">
+                                <div class="flex flex-col pl-[20px]">
+                                    <div class="text-gray-300">Coucher du soleil</div>
+                                    <div id="sunset" class="font-bold text-[25px]">00:00</div>
+                                </div>
+                            </div>
+                            <div id="sunset_in" class="flex items-center text-gray-300 pr-[20px]">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
